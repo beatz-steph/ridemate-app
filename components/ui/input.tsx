@@ -9,12 +9,12 @@ function Input({
   return (
     <TextInput
       className={cn(
-        'dark:bg-input/30 border-input bg-background text-foreground flex h-10 w-full min-w-0 flex-row items-center rounded-md border px-3 py-1 text-base leading-5 shadow-sm shadow-black/5 sm:h-9',
+        'border-[#F2F2F2] focus:border-ring bg-[#F2F2F2] text-foreground flex h-[70px] w-full min-w-0 flex-row items-center rounded-[30px] border py-1 text-base leading-5 sm:h-9 px-5 text-[20px] placeholder:text-[#919191]',
         props.editable === false &&
-          cn(
-            'opacity-50',
-            Platform.select({ web: 'disabled:pointer-events-none disabled:cursor-not-allowed' })
-          ),
+        cn(
+          'opacity-50',
+          Platform.select({ web: 'disabled:pointer-events-none disabled:cursor-not-allowed' })
+        ),
         Platform.select({
           web: cn(
             'placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground outline-none transition-[color,box-shadow] md:text-sm',

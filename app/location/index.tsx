@@ -20,11 +20,11 @@ export default function LocationSetup() {
 
 
         </View>
-        <View>
-            <Button onPress={() => { router.replace("/location/map") }}>
+        <View className="flex flex-col gap-2.5">
+            <Button size="4xl" variant="outline" onPress={() => { router.replace("/location/map") }}>
                 <Text>Change</Text>
             </Button>
-            <Button onPress={() => { router.navigate("/rider") }}>
+            <Button size="4xl" onPress={() => { router.navigate("/rider") }}>
                 <Text>Set Location</Text>
             </Button>
         </View>

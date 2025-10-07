@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Text } from "@/components/ui/text";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
-import { KeyboardAvoidingView, Platform, Pressable, View } from "react-native";
+import { Pressable, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const back_arrow_image = require("@/assets/images/general/arrow_left.png")
@@ -25,21 +25,20 @@ export default function Auth() {
             <Text className="text-[20px] font-light text-black text-center max-w-[388px] mb-[100px]">
                 We’ll send you a one-time code to verify it’s really you.
             </Text>
-            <View >
-                <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
-
+            <View className="flex flex-col gap-8" >
+                <View>
                     <Input textContentType="emailAddress" placeholder="Email address" className="" />
-                </KeyboardAvoidingView>
+                </View>
 
                 <Text className="w-full text-center text-[20px] text-black font-light">or</Text>
-                <Button onPress={() => { }}>
+                <Button size="4xl" variant="secondary" onPress={() => { }}>
                     <Image source={google_image} style={{ width: 25, height: 25 }} />
 
-                    <Text className="">Sign up with Google</Text>
+                    <Text >Sign up with Google</Text>
                 </Button>
             </View>
         </View>
-        <Button onPress={() => { router.navigate("/auth/verify") }}>
+        <Button size="4xl" onPress={() => { router.navigate("/auth/verify") }}>
             <Text>Verify</Text>
         </Button>
     </SafeAreaView>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { AppleOTPInput } from "@/components/ui/otp-input";
 import { Text } from "@/components/ui/text";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -26,7 +26,7 @@ export default function OTPVerification() {
                 We’ve sent a 4-digit code to your email. Enter it below to continue.
             </Text>
             <View className="w-[325px] mx-auto mb-8">
-                <Input />
+                <AppleOTPInput length={4} />
             </View>
             <View className="flex flex-row items-center mx-auto gap-2">
                 <Text className="text-[20px] font-light text-black text-center">
@@ -36,7 +36,7 @@ export default function OTPVerification() {
             </View>
         </View>
 
-        <Button onPress={() => { router.replace("/location") }}>
+        <Button size="4xl" onPress={() => { router.replace("/location") }}>
             <Text>Verify</Text>
         </Button>
     </SafeAreaView>
