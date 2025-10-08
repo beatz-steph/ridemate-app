@@ -12,7 +12,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.ridemate",
       "config": {
-        "googleMapsApiKey": process.env.GOOGLE_LOCATION_API_KEY
+        "googleMapsApiKey": "process.env.GOOGLE_LOCATION_API_KEY"
       }
     },
     "android": {
@@ -27,7 +27,7 @@
       "package": "com.anonymous.ridemate",
       "config": {
         "googleMaps": {
-          "apiKey":  process.env.GOOGLE_LOCATION_API_KEY
+          "apiKey":  "process.env.GOOGLE_LOCATION_API_KEY"
         }
       }
     },

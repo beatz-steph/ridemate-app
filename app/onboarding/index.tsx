@@ -87,7 +87,7 @@ export default function Introduction() {
 
         </PagerView>
         <View className='mx-5 mt-5'>
-          <FlatList className='mx-auto w-fit mb-10 gap-1 flex' horizontal data={pages} renderItem={({ item, index }) => <View className={cn('h-1.5 rounded-full mx-0.5', index === current_page ? 'bg-main-100 w-5' : "bg-main-40 w-1.5")} />} />
+          <FlatList className='mx-auto w-fit mb-10 gap-1 flex' horizontal data={pages} renderItem={({ item, index }) => <View className={cn('h-1.5 rounded-full mx-0.5', index === current_page ? 'bg-rd_main w-5' : "bg-rd_main opacity-[0.5] w-1.5")} />} />
           <Button size="4xl" onPress={current_page_cta[current_page].onPress}>
             <Text>{current_page_cta[current_page].text}</Text>
           </Button>

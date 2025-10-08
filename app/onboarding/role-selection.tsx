@@ -49,7 +49,7 @@ export default function RoleSelection() {
                     />
                 </View>
             </View>
-            <Button size="4xl" onPress={() => { router.navigate("/auth") }}>
+            <Button disabled={!role} size="4xl" onPress={() => { router.navigate("/auth") }}>
                 <Text>Continue</Text>
             </Button>
 

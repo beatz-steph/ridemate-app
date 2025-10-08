@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react'
 
-type role = 'rider' | 'driver'
+type role = 'rider' | 'driver' | undefined
 
 type OnboardingContext = {
     role: role,

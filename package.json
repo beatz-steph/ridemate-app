@@ -8,7 +8,8 @@
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "generate-types": "dotenv -e .env -- sh -c 'pnpm dlx supabase gen types typescript --project-id \"$EXPO_PUBLIC_SUPABASE_ID\" > types/supabase.ts'"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
@@ -54,6 +55,7 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
+    "dotenv-cli": "^10.0.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
