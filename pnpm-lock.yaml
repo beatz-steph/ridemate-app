@@ -32,6 +32,9 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.74.0
         version: 2.74.0
+      '@tanstack/react-query':
+        specifier: ^5.90.2
+        version: 5.90.2(react@19.1.0)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -129,6 +132,9 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.18(yaml@2.8.1))
     devDependencies:
+      '@tanstack/eslint-plugin-query':
+        specifier: ^5.91.0
+        version: 5.91.0(eslint@9.37.0(jiti@1.21.7))(typescript@5.9.3)
       '@types/react':
         specifier: ~19.1.0
         version: 19.1.17
@@ -1376,6 +1382,19 @@ packages:
 
   '@supabase/supabase-js@2.74.0':
     resolution: {integrity: sha512-IEMM/V6gKdP+N/X31KDIczVzghDpiPWFGLNjS8Rus71KvV6y6ueLrrE/JGCHDrU+9pq5copF3iCa0YQh+9Lq9Q==}
+
+  '@tanstack/eslint-plugin-query@5.91.0':
+    resolution: {integrity: sha512-Kn6yWyRe3dIPf7NqyDMhcsTBz2Oh8jPSOpBdlnLQhGBJ6iTMBFYA4B1UreGJ/WdfzQskSMh5imcyWF+wqa/Q5g==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
+
+  '@tanstack/query-core@5.90.2':
+    resolution: {integrity: sha512-k/TcR3YalnzibscALLwxeiLUub6jN5EDLwKDiO7q5f4ICEoptJ+n9+7vcEFy5/x/i6Q+Lb/tXrsKCggf5uQJXQ==}
+
+  '@tanstack/react-query@5.90.2':
+    resolution: {integrity: sha512-CLABiR+h5PYfOWr/z+vWFt5VsOA2ekQeRQBFSKlcoW6Ndx/f8rfyVmq4LbgOM4GG2qtxAxjLYLOpCNTYm4uKzw==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -6474,6 +6493,21 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+
+  '@tanstack/eslint-plugin-query@5.91.0(eslint@9.37.0(jiti@1.21.7))(typescript@5.9.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.46.0(eslint@9.37.0(jiti@1.21.7))(typescript@5.9.3)
+      eslint: 9.37.0(jiti@1.21.7)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  '@tanstack/query-core@5.90.2': {}
+
+  '@tanstack/react-query@5.90.2(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.90.2
+      react: 19.1.0
 
   '@tybys/wasm-util@0.10.1':
     dependencies:

@@ -10,18 +10,31 @@ import { SplashScreenController } from '@/components/splash-screen-controller';
 import '@/global.css';
 import { useAuthContext } from '@/hooks/use-auth-context';
 import AuthProvider from '@/providers/auth-provider';
+import {
+  QueryClient,
+  QueryClientProvider
+} from '@tanstack/react-query';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export const unstable_settings = {
   anchor: 'index',
 };
 
+const queryClient = new QueryClient(
+  {
+    defaultOptions: {
+      queries: {
+        staleTime: 1000 * 60 * 5, // 5 minutes
+        retry: 1,
+      },
+    },
+  }
+)
 
 
 function RootNavigator() {
   const { isLoggedIn } = useAuthContext()
 
-  console.debug(isLoggedIn)
   return (
     <Stack>
       {/* <Stack.Protected guard={isLoggedIn}> */}
@@ -44,14 +57,16 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <AuthProvider>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <SplashScreenController />
-          <RootNavigator />
-          <PortalHost />
-          <StatusBar style="auto" />
-        </ThemeProvider>
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+            <SplashScreenController />
+            <RootNavigator />
+            <PortalHost />
+            <StatusBar style="auto" />
+          </ThemeProvider>
+        </AuthProvider>
+      </QueryClientProvider>
     </SafeAreaProvider>
 
   );
