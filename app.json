@@ -12,7 +12,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.anonymous.ridemate",
       "config": {
-        "googleMapsApiKey": "AIzaSyDFFugGnihQX9D4_W761cG_Ot5U33ojXVA"
+        "googleMapsApiKey": "AIzaSyA6AD4bIGzY4HEiHxzqAUnUgKz1Ooh4MPo"
       }
     },
     "android": {
@@ -27,7 +27,7 @@
       "package": "com.anonymous.ridemate",
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyDFFugGnihQX9D4_W761cG_Ot5U33ojXVA"
+          "apiKey": "AIzaSyA6AD4bIGzY4HEiHxzqAUnUgKz1Ooh4MPo"
         }
       }
     },
