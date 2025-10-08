@@ -47,7 +47,7 @@ export const useOtpVerificationForm = () => {
 
     const handle_submit = (data: Payload) => {
 
-        otp_verification_mutation.mutate(data,)
+        otp_verification_mutation.mutate(data)
 
     }
 
