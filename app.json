@@ -10,7 +10,10 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.anonymous.ridemate"
+      "bundleIdentifier": "com.anonymous.ridemate",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDFFugGnihQX9D4_W761cG_Ot5U33ojXVA"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -21,7 +24,12 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.ridemate"
+      "package": "com.anonymous.ridemate",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDFFugGnihQX9D4_W761cG_Ot5U33ojXVA"
+        }
+      }
     },
     "web": {
       "output": "static",

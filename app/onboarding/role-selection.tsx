@@ -7,12 +7,12 @@ import { useRouter } from "expo-router";
 import { View } from "react-native";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const rider_image = require('@/assets/onboarding/rider.png');
-const rider_alt_image = require('@/assets/onboarding/rider-alt.png');
+const rider_image = require('@/assets/images/onboarding/rider.png');
+const rider_alt_image = require('@/assets/images/onboarding/rider-alt.png');
 
 
-const driver_image = require('@/assets/onboarding/driver.png');
-const driver_alt_image = require('@/assets/onboarding/driver-alt.png');
+const driver_image = require('@/assets/images/onboarding/driver.png');
+const driver_alt_image = require('@/assets/images/onboarding/driver-alt.png');
 
 
 export default function RoleSelection() {

@@ -34,7 +34,7 @@ function RootNavigator() {
         <Stack.Screen name='auth' options={{ headerShown: false }} />
         <Stack.Screen name='location' options={{ headerShown: false }} />
       </Stack.Protected>
-
+      <Stack.Screen name='rider' options={{ headerShown: false }} />
     </Stack>
   )
 }

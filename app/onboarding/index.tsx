@@ -10,9 +10,9 @@ import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-const intro1 = require('@/assets/onboarding/intro-1.png');
+const intro1 = require('@/assets/images/onboarding/intro-1.png');
 
-const intro2 = require('@/assets/onboarding/intro-2.png');
+const intro2 = require('@/assets/images/onboarding/intro-2.png');
 
 
 const pages = [

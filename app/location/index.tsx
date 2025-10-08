@@ -17,8 +17,6 @@ export default function LocationSetup() {
                 </Text>
             </View>
 
-
-
         </View>
         <View className="flex flex-col gap-2.5">
             <Button size="4xl" variant="outline" onPress={() => { router.replace("/location/map") }}>
