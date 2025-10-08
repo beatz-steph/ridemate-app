@@ -1,8 +1,21 @@
 import { supabase } from "@/lib/supabase";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
-type Payload = { email: string, token: string }
 
+//------------ SCHEMA ---------//
+const otp_verification_schema = z.object({
+    email: z.email(),
+    token: z.string().length(4)
+})
+
+type Payload = z.infer<typeof otp_verification_schema>
+
+
+
+//---------- MUTATION ------------//
 export const use_otp_verification_mutation = () => {
 
     return useMutation({
@@ -16,7 +29,30 @@ export const use_otp_verification_mutation = () => {
             if (error) throw error;
             return data;
         },
-        onSuccess: () => { },
-        onError: () => { }
     })
+}
+
+
+
+
+//------------ FORM HOOK -----------//
+export const useOtpVerificationForm = () => {
+
+    const form = useForm({
+        resolver: zodResolver(otp_verification_schema)
+    })
+
+
+    const otp_verification_mutation = use_otp_verification_mutation()
+
+    const handle_submit = (data: Payload) => {
+
+        otp_verification_mutation.mutate(data,)
+
+    }
+
+
+    const on_submit = form.handleSubmit(handle_submit)
+
+    return { form, on_submit, loading: otp_verification_mutation.isPending }
 }
