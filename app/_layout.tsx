@@ -10,6 +10,7 @@ import { SplashScreenController } from '@/components/splash-screen-controller';
 import '@/global.css';
 import { useAuthContext } from '@/hooks/use-auth-context';
 import AuthProvider from '@/providers/auth-provider';
+import { OnboardingProvider } from '@/providers/onboarding-provider';
 import {
   QueryClient,
   QueryClientProvider
@@ -40,14 +41,14 @@ function RootNavigator() {
       {/* <Stack.Protected guard={isLoggedIn}> */}
       <Stack.Protected guard={isLoggedIn}>
         <Stack.Screen name='index' options={{ headerShown: false }} />
+        <Stack.Screen name='location' options={{ headerShown: false }} />
+        <Stack.Screen name='rider' options={{ headerShown: false }} />
       </Stack.Protected>
       {/* </Stack.Protected> */}
       <Stack.Protected guard={!isLoggedIn}>
         <Stack.Screen name='onboarding' options={{ headerShown: false }} />
         <Stack.Screen name='auth' options={{ headerShown: false }} />
-        <Stack.Screen name='location' options={{ headerShown: false }} />
       </Stack.Protected>
-      <Stack.Screen name='rider' options={{ headerShown: false }} />
     </Stack>
   )
 }
@@ -59,12 +60,14 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-            <SplashScreenController />
-            <RootNavigator />
-            <PortalHost />
-            <StatusBar style="auto" />
-          </ThemeProvider>
+          <OnboardingProvider>
+            <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+              <SplashScreenController />
+              <RootNavigator />
+              <PortalHost />
+              <StatusBar style="auto" />
+            </ThemeProvider>
+          </OnboardingProvider>
         </AuthProvider>
       </QueryClientProvider>
     </SafeAreaProvider>

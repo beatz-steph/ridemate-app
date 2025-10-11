@@ -13,6 +13,10 @@
       "bundleIdentifier": "com.anonymous.ridemate",
       "config": {
         "googleMapsApiKey": "process.env.GOOGLE_LOCATION_API_KEY"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We need your location to find the nearest campus and show you available rides in your area.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "We need your location to find the nearest campus and show you available rides in your area."
       }
     },
     "android": {
@@ -29,7 +33,11 @@
         "googleMaps": {
           "apiKey":  "process.env.GOOGLE_LOCATION_API_KEY"
         }
-      }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ]
     },
     "web": {
       "output": "static",

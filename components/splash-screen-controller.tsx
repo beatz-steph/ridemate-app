@@ -6,7 +6,6 @@ import { SplashScreen } from 'expo-router'
 export function SplashScreenController() {
   const { isLoading } = useAuthContext()
 
-  console.debug({ isLoading })
 
   if (!isLoading) {
     SplashScreen.hideAsync()

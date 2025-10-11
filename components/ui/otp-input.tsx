@@ -1,6 +1,4 @@
-import type { OTPInputRef } from 'input-otp-native';
 import { OTPInput, type SlotProps } from 'input-otp-native';
-import { useRef } from 'react';
 import { Text, View } from 'react-native';
 
 import { cn } from '@/lib/utils';
@@ -13,21 +11,23 @@ import Animated, {
     withTiming,
 } from 'react-native-reanimated';
 
-export function AppleOTPInput({ length }: { length: number }) {
-    const ref = useRef<OTPInputRef>(null);
+export type AppleOTPInputProps = React.ComponentProps<typeof OTPInput>;
+
+export function AppleOTPInput(props: AppleOTPInputProps) {
 
 
     return (
         <OTPInput
-            ref={ref}
-            maxLength={length}
             render={({ slots }) => (
                 <View className="flex-row gap-2 items-center justify-center my-4">
                     {slots.map((slot, idx) => (
                         <Slot key={idx} {...slot} />
                     ))}
                 </View>
+
             )}
+
+            {...props}
         />
     );
 }
@@ -36,7 +36,7 @@ function Slot({ char, isActive, hasFakeCaret }: SlotProps) {
     return (
         <View
             className={cn(
-                'w-[70px] h-[70px] items-center justify-center rounded-[20px] bg-[#F2F2F2]',
+                'w-[50px] h-[50px] items-center justify-center rounded-[16px] bg-[#F2F2F2]',
                 {
                     'border-black border-2': isActive,
                 }

@@ -1,8 +1,11 @@
+import { useOtpVerificationForm } from "@/api/auth/otp-verification.mutation";
+import { FormAppleOTPInput } from "@/components/form/otp-input";
 import { Button } from "@/components/ui/button";
-import { AppleOTPInput } from "@/components/ui/otp-input";
+import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
+import { Loader2 } from "lucide-react-native";
 import { Pressable, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -12,6 +15,8 @@ const back_arrow_image = require("@/assets/images/general/arrow_left.png")
 
 export default function OTPVerification() {
     const router = useRouter()
+
+    const { form, on_submit, loading } = useOtpVerificationForm()
 
 
     return <SafeAreaView className='flex-1 px-5 flex justify-between bg-white'>
@@ -26,7 +31,7 @@ export default function OTPVerification() {
                 We’ve sent a 4-digit code to your email. Enter it below to continue.
             </Text>
             <View className="w-[325px] mx-auto mb-8">
-                <AppleOTPInput length={4} />
+                <FormAppleOTPInput form={form} name="token" loading={loading} maxLength={6} />
             </View>
             <View className="flex flex-row items-center mx-auto gap-2">
                 <Text className="text-[20px] font-light text-black text-center">
@@ -36,8 +41,10 @@ export default function OTPVerification() {
             </View>
         </View>
 
-        <Button size="4xl" onPress={() => { router.replace("/location") }}>
-            <Text>Verify</Text>
+        <Button disabled={loading} size="4xl" onPress={on_submit}>
+            {loading ? <View className="pointer-events-none animate-spin">
+                <Icon as={Loader2} className="text-white" size={20} />
+            </View> : <Text>Verify</Text>}
         </Button>
     </SafeAreaView>
 }

@@ -21,7 +21,6 @@ export default function Auth() {
 
     const { form, on_submit, loading, } = useOtpRequestForm()
 
-    console.log(form.formState.errors)
 
     return <SafeAreaView className='flex-1 px-5 flex justify-between bg-white'>
         <View className="flex-1 relative">

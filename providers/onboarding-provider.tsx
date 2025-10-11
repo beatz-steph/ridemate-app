@@ -6,6 +6,7 @@ export function OnboardingProvider({ children }: { children: ReactNode }) {
     const [role, set_role] = useState<'rider' | 'driver' | undefined>(undefined)
     const [email, set_email] = useState<string | undefined>(undefined)
 
+
     return <OnboardingContext.Provider value={{ role, set_role, email, set_email }}>
         {children}
     </OnboardingContext.Provider>

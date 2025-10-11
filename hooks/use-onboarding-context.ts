@@ -17,4 +17,12 @@ export const OnboardingContext = createContext<OnboardingContext>({
 
 })
 
-export const useOnboardingContext = () => useContext(OnboardingContext)
+export const useOnboardingContext = () => {
+
+    const ctx = useContext(OnboardingContext)
+
+    if (!ctx) throw new Error("useOnboardingContext must be used within OnboardingProvider");
+
+
+    return ctx
+}

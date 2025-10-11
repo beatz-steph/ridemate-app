@@ -14,30 +14,110 @@ export type Database = {
   }
   public: {
     Tables: {
+      instituions: {
+        Row: {
+          address: string | null
+          city: string | null
+          country: string | null
+          created_at: string
+          id: number
+          is_active: boolean | null
+          location: unknown
+          name: string
+          operating_hours: Json | null
+          service_radius_km: number
+          short_name: string | null
+          state: string | null
+          time_zone: string | null
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: number
+          is_active?: boolean | null
+          location: unknown
+          name: string
+          operating_hours?: Json | null
+          service_radius_km: number
+          short_name?: string | null
+          state?: string | null
+          time_zone?: string | null
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          id?: number
+          is_active?: boolean | null
+          location?: unknown
+          name?: string
+          operating_hours?: Json | null
+          service_radius_km?: number
+          short_name?: string | null
+          state?: string | null
+          time_zone?: string | null
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
           full_name: string | null
+          home_institution_id: number | null
           id: string
           updated_at: string | null
-          username: string | null
-          website: string | null
         }
         Insert: {
           avatar_url?: string | null
           full_name?: string | null
+          home_institution_id?: number | null
           id: string
           updated_at?: string | null
-          username?: string | null
-          website?: string | null
         }
         Update: {
           avatar_url?: string | null
           full_name?: string | null
+          home_institution_id?: number | null
           id?: string
           updated_at?: string | null
-          username?: string | null
-          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_home_institution_id_fkey"
+            columns: ["home_institution_id"]
+            isOneToOne: false
+            referencedRelation: "instituions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rider_profiles: {
+        Row: {
+          created_at: string
+          id: string
+          rating: number
+          total_rides: number
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          rating?: number
+          total_rides?: number
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          rating?: number
+          total_rides?: number
+          updated_at?: string | null
+          user_id?: string
         }
         Relationships: []
       }

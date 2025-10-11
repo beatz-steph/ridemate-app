@@ -1,14 +1,14 @@
 import { AuthContext } from '@/hooks/use-auth-context'
 import { supabase } from '@/lib/supabase'
+import { Database } from '@/types/supabase'
 import type { Session } from '@supabase/supabase-js'
 import { PropsWithChildren, useEffect, useState } from 'react'
 
 export default function AuthProvider({ children }: PropsWithChildren) {
   const [session, setSession] = useState<Session | undefined | null>()
-  const [profile, setProfile] = useState<any>()
+  const [profile, setProfile] = useState<Database["public"]["Tables"]["profiles"]["Row"] | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  console.debug({ session, profile, isLoading })
 
   // Fetch the session once, and subscribe to auth state changes
   useEffect(() => {
@@ -33,7 +33,6 @@ export default function AuthProvider({ children }: PropsWithChildren) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      console.log('Auth state changed:', { event: _event, session })
       setSession(session)
     })
 
